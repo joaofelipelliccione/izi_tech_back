@@ -1,5 +1,5 @@
 # A minha imagem será baseada na versão 14 compacta (alpine) do node.
-FROM node:alpine
+FROM node:14-alpine
 # mdir app + cd app, dentro do container.
 WORKDIR /app
 # Copiando o arquivo package.json para dentro do diretório /app, do container.
