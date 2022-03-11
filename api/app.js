@@ -9,11 +9,6 @@ const verifyTokenRoutes = require('./routes/verifyTokenRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const userRoutes = require('./routes/userRoutes');
 
-const verifyTokenMw = require('./auth/verifyTokenMw');
-const {
-  mailFormatValidator,
-  passwordFormatValidator,
-} = require('./middlewares/validators');
 const errorMw = require('./middlewares/errorMw');
 
 app.use(cors({
@@ -25,18 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/izi', pingRoutes);
-
+app.use('/login', loginRoutes);
 app.use('/verify_token', verifyTokenRoutes);
-
-app.use('/login',
-mailFormatValidator,
-passwordFormatValidator,
-loginRoutes);
-
-app.use('/user_info',
-verifyTokenMw,
-mailFormatValidator,
-userRoutes);
+app.use('/user', userRoutes);
 
 app.use(errorMw);
 

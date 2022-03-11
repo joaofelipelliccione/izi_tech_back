@@ -3,7 +3,7 @@ const UserService = require('./UserService');
 const generateToken = require('../auth/generateToken');
 
 const login = async (userMail, userPassword) => {
-  const user = await UserService.findUserInfo(userMail);
+  const user = await UserService.findOne(userMail);
   const isPasswordValid = user.userPassword === userPassword;
   const authToken = await generateToken(userMail, userPassword, user.userId);
 

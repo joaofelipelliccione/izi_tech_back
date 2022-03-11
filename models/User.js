@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     userCPF: DataTypes.STRING(14), // Ex: XXX.XXX.XXX-XX
     userCellphone: DataTypes.STRING(15), // Ex: (xx) XXXXX-XXXX
     userPicture: DataTypes.STRING,
-    dateOfRegister: DataTypes.DATEONLY, // Ex: YYYY-MM-DD
+    dateOfRegister: { type: DataTypes.DATEONLY, defaultValue: DataTypes.NOW }, // Ex: YYYY-MM-DD
     // userAddressId: { type: DataTypes.INTEGER, foreignKey: true }, // Declaração opcional.
   },
   {

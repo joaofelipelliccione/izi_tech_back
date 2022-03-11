@@ -6,6 +6,7 @@
   "scripts": {
     "prestart": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
     "start": "node ./api/server.js",
+    "debug": "nodemon ./api/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "João Felipe Pelliccione",

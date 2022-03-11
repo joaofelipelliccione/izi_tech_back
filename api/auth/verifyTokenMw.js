@@ -8,14 +8,16 @@ module.exports = async (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
-    return res.status(StatusCodes.NOT_FOUND).json({
-      code: StatusCodes.NOT_FOUND,
+    return res.status(StatusCodes.UNAUTHORIZED).json({
+      code: StatusCodes.UNAUTHORIZED,
       message: 'Nenhum token informado.',
     });
   }
 
   try {
-    jwt.verify(authorization, SECRET);
+    const decoded = jwt.verify(authorization, SECRET);
+    req.userInfo = decoded;
+
     next();
   } catch (error) {
     return res.status(StatusCodes.UNAUTHORIZED)

@@ -1,13 +1,13 @@
 const { StatusCodes } = require('http-status-codes');
 const { User, UserAddress } = require('../../models/index');
 
-const findUserInfo = async (userMail) => {
+const findOne = async (userMail) => {
   const user = await User.findOne({
     where: { userMail },
-    include: {
-      model: UserAddress,
-      as: 'userAddress',
-    },
+    attributes: { exclude: ['userAddressId'] },
+    include: [
+      { model: UserAddress, as: 'userAddress' },
+    ],
   });
 
   if (user === null) {
@@ -22,6 +22,11 @@ const findUserInfo = async (userMail) => {
   return user;
 };
 
+const create = async ({ userName, userMail, userPassword }) => {
+  await User.create({ userName, userMail, userPassword });
+};
+
 module.exports = {
-  findUserInfo,
+  findOne,
+  create,
 };

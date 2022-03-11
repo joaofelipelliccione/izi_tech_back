@@ -50,7 +50,22 @@ const passwordFormatValidator = (req, res, next) => {
   next();
 };
 
+const userNameGapValidator = (req, res, next) => {
+  const { userName } = req.body;
+
+  if (!userName || userName === '') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"userName" deve ser fornecido e não pode ser vazio.',
+    });
+  }
+
+  next();
+};
+
 module.exports = {
   mailFormatValidator,
   passwordFormatValidator,
+  userNameGapValidator,
 };
