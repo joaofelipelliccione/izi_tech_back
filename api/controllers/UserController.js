@@ -7,11 +7,11 @@ const create = async (req, res, _next) => {
   const existentUser = await UserService.findOne(userMail);
   if (!existentUser.error) {
     return res.status(StatusCodes.CONFLICT)
-    .json({ message: 'Usuário já cadastrado.' });
+    .json({ code: StatusCodes.CONFLICT, message: 'Usuário já cadastrado.' });
   }
 
-  await UserService.create({ userName, userMail, userPassword });
-  return res.status(StatusCodes.CREATED).json();
+  const newUser = await UserService.create({ userName, userMail, userPassword });
+  return res.status(newUser.code).json({ code: newUser.code, message: newUser.message });
 };
 
 module.exports = {

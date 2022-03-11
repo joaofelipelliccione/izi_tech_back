@@ -24,6 +24,10 @@ const findOne = async (userMail) => {
 
 const create = async ({ userName, userMail, userPassword }) => {
   await User.create({ userName, userMail, userPassword });
+  return {
+    code: StatusCodes.CREATED,
+    message: 'Novo usuário cadastrado com sucesso!',
+  };
 };
 
 module.exports = {
