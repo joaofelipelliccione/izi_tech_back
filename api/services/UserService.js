@@ -44,6 +44,10 @@ const findByPk = async (userId) => {
         as: 'publishedProducts',
         attributes: ['productId'],
       },
+      // { model: FavoriteProducts, --> TIRAR DÚVIDA MONITORIA.
+      //   as: 'favoriteProducts',
+      //   through: { attributes: [] },
+      // },
     ],
   });
 
