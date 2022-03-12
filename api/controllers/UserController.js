@@ -14,6 +14,19 @@ const create = async (req, res, _next) => {
   return res.status(newUser.code).json({ code: newUser.code, message: newUser.message });
 };
 
+const findByPk = async (req, res, _next) => {
+  // const { userInfo } = req; // FAZER VALIDAÇÃO
+  const { id } = req.params;
+  const user = await UserService.findByPk(id);
+
+  if (user.error) {
+    res.status(user.error.code).json({ code: user.error.code, message: user.error.message });
+  }
+
+  res.status(StatusCodes.OK).json(user);
+};
+
 module.exports = {
   create,
+  findByPk,
 };

@@ -4,7 +4,7 @@ const UserController = require('../controllers/UserController');
 
 const userRoutes = express.Router();
 
-// const verifyTokenMw = require('../auth/verifyTokenMw');
+const verifyTokenMw = require('../auth/verifyTokenMw');
 const {
   mailFormatValidator,
   passwordFormatValidator,
@@ -16,5 +16,9 @@ userNameGapValidator,
 mailFormatValidator,
 passwordFormatValidator,
 rescue(UserController.create));
+
+userRoutes.get('/:id',
+verifyTokenMw,
+rescue(UserController.findByPk));
 
 module.exports = userRoutes;
