@@ -64,8 +64,34 @@ const userNameGapValidator = (req, res, next) => {
   next();
 };
 
+const cepFormatValidator = (req, res, next) => {
+  const { cep } = req.body;
+
+  const validateCepFormatRgx = /(\d{5})-(\d{3})/;
+  const isCepFormatValid = validateCepFormatRgx.test(cep);
+
+  if (!cep || cep === '') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"cep" deve ser fornecido e não pode ser vazio.',
+    });
+  }
+
+  if (!isCepFormatValid) {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"cep" não apresenta um formato válido.',
+    });
+  }
+
+  next();
+};
+
 module.exports = {
   mailFormatValidator,
   passwordFormatValidator,
   userNameGapValidator,
+  cepFormatValidator,
 };

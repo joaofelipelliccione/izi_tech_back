@@ -1,5 +1,4 @@
 /* eslint-disable max-lines-per-function */
-
 const { StatusCodes } = require('http-status-codes');
 const {
   User,
