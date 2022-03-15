@@ -11,6 +11,19 @@ const create = async () => {
   };
 };
 
+const update = async ({ userAddressId, complement, infoFromCepId }) => {
+  await UserAddress.update(
+    { complement, infoFromCepId },
+    { where: { userAddressId } }, 
+  );
+
+  return {
+    code: StatusCodes.OK,
+    userAddress: { userAddressId, complement, infoFromCepId },
+  };
+};
+
 module.exports = {
   create,
+  update,
 };

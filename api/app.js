@@ -8,7 +8,6 @@ const pingRoutes = require('./routes/pingRoutes');
 const verifyTokenRoutes = require('./routes/verifyTokenRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const userRoutes = require('./routes/userRoutes');
-const infoFromCepRoutes = require('./routes/infoFromCepRoutes');
 
 const errorMw = require('./middlewares/errorMw');
 
@@ -24,7 +23,6 @@ app.use('/izi', pingRoutes);
 app.use('/login', loginRoutes);
 app.use('/verify_token', verifyTokenRoutes);
 app.use('/user', userRoutes);
-app.use('/info_from_cep', infoFromCepRoutes);
 
 app.use(errorMw);
 

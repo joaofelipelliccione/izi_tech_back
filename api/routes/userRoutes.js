@@ -1,6 +1,8 @@
 const express = require('express');
 const rescue = require('express-rescue');
 const UserController = require('../controllers/UserController');
+const InfoFromCepController = require('../controllers/InfoFromCepController');
+const UserAddressController = require('../controllers/UserAddressController');
 
 const userRoutes = express.Router();
 
@@ -16,6 +18,12 @@ userNameGapValidator,
 mailFormatValidator,
 passwordFormatValidator,
 rescue(UserController.create));
+
+userRoutes.put('/update',
+verifyTokenMw,
+rescue(InfoFromCepController.create),
+rescue(UserAddressController.update),
+rescue(UserController.update));
 
 userRoutes.get('/:id',
 verifyTokenMw,
