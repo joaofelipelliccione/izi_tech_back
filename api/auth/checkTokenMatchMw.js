@@ -8,10 +8,10 @@ module.exports = async (req, res, next) => {
   const user = await UserService.findByPk(id);
 
   if (user.error) {
-    res.status(user.error.code).json({ code: user.error.code, message: user.error.message });
+    return res.status(user.error.code).json({ code: user.error.code, message: user.error.message });
   }
   if (!user.error && userInfo.userId !== Number(id)) { // Token do user X, não pode acessar informações do user Y.
-    res.status(StatusCodes.UNAUTHORIZED)
+    return res.status(StatusCodes.UNAUTHORIZED)
     .json({ code: StatusCodes.UNAUTHORIZED, message: 'Acesso negado.' });
   }
 
