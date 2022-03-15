@@ -62,7 +62,7 @@ module.exports = {
         userCellphone: null,
         userPicture: null,
         dateOfRegister: '2020-12-27',
-        userAddressId: null,
+        userAddressId: 5,
       },
       ], { timestamps: false });
   },

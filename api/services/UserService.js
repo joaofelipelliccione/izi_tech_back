@@ -22,8 +22,8 @@ const findOne = async (userMail) => {
   return user;
 };
 
-const create = async ({ userName, userMail, userPassword }) => {
-  await User.create({ userName, userMail, userPassword });
+const create = async ({ userName, userMail, userPassword, userAddressId }) => {
+  await User.create({ userName, userMail, userPassword, userAddressId });
   return {
     code: StatusCodes.CREATED,
     message: 'Novo usuário cadastrado com sucesso!',

@@ -42,7 +42,7 @@ module.exports = {
         type: Sequelize.DATEONLY,
       },
       userAddressId: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',

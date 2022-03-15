@@ -23,6 +23,11 @@ module.exports = {
         complement: 'número 15, APTO 801',
         infoFromCepId: 1,
       },
+      {
+        userAddressId: 5,
+        complement: null,
+        infoFromCepId: null,
+      },
       ], { timestamps: false });
   },
 

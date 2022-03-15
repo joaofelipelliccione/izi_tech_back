@@ -13,7 +13,6 @@ module.exports = {
         type: Sequelize.STRING,
       },
       infoFromCepId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',

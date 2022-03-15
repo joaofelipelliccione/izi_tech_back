@@ -1,5 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 const UserService = require('../services/UserService');
+const UserAddressService = require('../services/UserAddressService');
 
 const create = async (req, res, _next) => {
   const { userName, userMail, userPassword } = req.body;
@@ -10,7 +11,9 @@ const create = async (req, res, _next) => {
     .json({ code: StatusCodes.CONFLICT, message: 'Usuário já cadastrado.' });
   }
 
-  const newUser = await UserService.create({ userName, userMail, userPassword });
+  const { userAddressId } = await UserAddressService.create();
+  const newUser = await UserService
+  .create({ userName, userMail, userPassword, userAddressId });
   return res.status(newUser.code).json({ code: newUser.code, message: newUser.message });
 };
 
