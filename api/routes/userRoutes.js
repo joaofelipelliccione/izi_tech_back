@@ -31,6 +31,7 @@ rescue(UserController.update));
 
 userRoutes.get('/:id',
 verifyTokenMw,
+checkTokenMatchMw,
 rescue(UserController.findByPk));
 
 module.exports = userRoutes;
