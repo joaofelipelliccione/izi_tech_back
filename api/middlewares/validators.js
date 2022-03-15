@@ -89,9 +89,24 @@ const cepFormatValidator = (req, res, next) => {
   next();
 };
 
+const userAddressIdGapValidator = (req, res, next) => {
+  const { userAddressId } = req.body;
+
+  if (!userAddressId || userAddressId === '' || typeof (userAddressId) !== 'number') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"userAddressId" deve ser fornecido, não pode ser vazio e deve ser um número.',
+    });
+  }
+
+  next();
+};
+
 module.exports = {
   mailFormatValidator,
   passwordFormatValidator,
   userNameGapValidator,
   cepFormatValidator,
+  userAddressIdGapValidator,
 };

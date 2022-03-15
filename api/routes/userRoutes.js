@@ -7,10 +7,12 @@ const UserAddressController = require('../controllers/UserAddressController');
 const userRoutes = express.Router();
 
 const verifyTokenMw = require('../auth/verifyTokenMw');
+const checkTokenMatchMw = require('../auth/checkTokenMatchMw');
 const {
   mailFormatValidator,
   passwordFormatValidator,
   userNameGapValidator,
+  userAddressIdGapValidator,
 } = require('../middlewares/validators');
 
 userRoutes.post('/new',
@@ -19,8 +21,10 @@ mailFormatValidator,
 passwordFormatValidator,
 rescue(UserController.create));
 
-userRoutes.put('/update',
+userRoutes.put('/update/:id',
 verifyTokenMw,
+checkTokenMatchMw,
+userAddressIdGapValidator,
 rescue(InfoFromCepController.create),
 rescue(UserAddressController.update),
 rescue(UserController.update));

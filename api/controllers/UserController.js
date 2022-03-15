@@ -34,7 +34,7 @@ const findByPk = async (req, res, _next) => {
   res.status(StatusCodes.OK).json(user);
 };
 
-const update = async (_req, res, _next) => {
+const update = async (_req, res, _next) => { // Continuar fazendo
   res.status(StatusCodes.OK)
   .json({ code: StatusCodes.UNAUTHORIZED, message: 'Alterações bem sucedidas!' });
 };
