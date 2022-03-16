@@ -64,21 +64,47 @@ const userNameGapValidator = (req, res, next) => {
   next();
 };
 
+const cpfFormatValidator = (req, res, next) => {
+  const { userCPF } = req.body;
+
+  const validateCpfFormatRgx = /(\d{3}).(\d{3}).(\d{3})-(\d{2})/;
+  const isCpfFormatValid = validateCpfFormatRgx.test(userCPF);
+
+  if (userCPF && userCPF !== null && !isCpfFormatValid) {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"userCPF" não apresenta um formato válido.',
+    });
+  }
+
+  next();
+};
+
+const cellphoneFormatValidator = (req, res, next) => {
+  const { userCellphone } = req.body;
+
+  const validateCellphoneFormatRgx = /\((\d{2})\) (\d{5})-(\d{4})/;
+  const isCellphoneFormatValid = validateCellphoneFormatRgx.test(userCellphone);
+
+  if (userCellphone && userCellphone !== null && !isCellphoneFormatValid) {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"userCellphone" não apresenta um formato válido.',
+    });
+  }
+
+  next();
+};
+
 const cepFormatValidator = (req, res, next) => {
   const { cep } = req.body;
 
   const validateCepFormatRgx = /(\d{5})-(\d{3})/;
   const isCepFormatValid = validateCepFormatRgx.test(cep);
 
-  if (!cep || cep === '') {
-    return res.status(StatusCodes.BAD_REQUEST)
-    .json({
-      code: StatusCodes.BAD_REQUEST,
-      message: '"cep" deve ser fornecido e não pode ser vazio.',
-    });
-  }
-
-  if (!isCepFormatValid) {
+  if (cep && cep !== null && !isCepFormatValid) {
     return res.status(StatusCodes.BAD_REQUEST)
     .json({
       code: StatusCodes.BAD_REQUEST,
@@ -107,6 +133,8 @@ module.exports = {
   mailFormatValidator,
   passwordFormatValidator,
   userNameGapValidator,
+  cpfFormatValidator,
+  cellphoneFormatValidator,
   cepFormatValidator,
   userAddressIdGapValidator,
 };

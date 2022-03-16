@@ -12,7 +12,10 @@ const {
   mailFormatValidator,
   passwordFormatValidator,
   userNameGapValidator,
+  cpfFormatValidator,
+  cellphoneFormatValidator,
   userAddressIdGapValidator,
+  cepFormatValidator,
 } = require('../middlewares/validators');
 
 userRoutes.post('/new',
@@ -24,7 +27,12 @@ rescue(UserController.create));
 userRoutes.put('/update/:id',
 verifyTokenMw,
 checkTokenMatchMw,
+userNameGapValidator,
+passwordFormatValidator,
+cpfFormatValidator,
+cellphoneFormatValidator,
 userAddressIdGapValidator,
+cepFormatValidator,
 rescue(InfoFromCepController.create),
 rescue(UserAddressController.update),
 rescue(UserController.update));

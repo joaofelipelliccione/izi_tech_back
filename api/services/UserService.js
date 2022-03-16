@@ -63,8 +63,16 @@ const findByPk = async (userId) => {
   return user;
 };
 
+const update = async (userId, { userName, userPassword, userBirthday, userCPF, userCellphone }) => {
+  await User.update(
+    { userName, userPassword, userBirthday, userCPF, userCellphone },
+    { where: { userId } }, 
+  );
+};
+
 module.exports = {
   findOne,
   create,
   findByPk,
+  update,
 };

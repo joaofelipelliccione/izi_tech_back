@@ -24,9 +24,13 @@ const findByPk = async (req, res, _next) => {
   res.status(StatusCodes.OK).json(user);
 };
 
-const update = async (_req, res, _next) => { // Continuar fazendo
+const update = async (req, res, _next) => {
+  const { id } = req.params;
+  const { userName, userPassword, userBirthday, userCPF, userCellphone } = req.body;
+
+  await UserService.update(id, { userName, userPassword, userBirthday, userCPF, userCellphone });
   res.status(StatusCodes.OK)
-  .json({ code: StatusCodes.UNAUTHORIZED, message: 'Alterações bem sucedidas!' });
+  .json({ code: StatusCodes.OK, message: 'Alterações realizadas com sucesso!' });
 };
 
 module.exports = {

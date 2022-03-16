@@ -10,27 +10,21 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       cep: {
-        allowNull: false,
         type: Sequelize.STRING(9),
       },
       street: {
-        allowNull: false,
         type: Sequelize.STRING,
       },
       neighborhood: {
-        allowNull: false,
         type: Sequelize.STRING,
       },
       city: {
-        allowNull: false,
         type: Sequelize.STRING,
       },
       uf: {
-        allowNull: false,
         type: Sequelize.STRING(2),
       },
       ddd: {
-        allowNull: false,
         type: Sequelize.STRING(2),
       },
     });
