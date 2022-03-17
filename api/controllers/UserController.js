@@ -26,15 +26,29 @@ const findByPk = async (req, res, _next) => {
 
 const update = async (req, res, _next) => {
   const { id } = req.params;
-  const { userName, userPassword, userBirthday, userCPF, userCellphone } = req.body;
+  const { userName, userPassword, userBirthday, userCPF, userCellphone, userPicture } = req.body;
 
-  await UserService.update(id, { userName, userPassword, userBirthday, userCPF, userCellphone });
+  await UserService.update(id, {
+    userName,
+    userPassword,
+    userBirthday,
+    userCPF,
+    userCellphone,
+    userPicture,
+  });
   res.status(StatusCodes.OK)
   .json({ code: StatusCodes.OK, message: 'Alterações realizadas com sucesso!' });
+};
+
+const updateProfilePicture = async (_req, res, _next) => {
+  // console.log(req.file);
+  res.status(StatusCodes.OK)
+  .json({ code: StatusCodes.OK, message: 'Imagem de perfil alterada com sucesso!' });
 };
 
 module.exports = {
   create,
   findByPk,
   update,
+  updateProfilePicture,
 };

@@ -8,6 +8,7 @@ const userRoutes = express.Router();
 
 const verifyTokenMw = require('../auth/verifyTokenMw');
 const checkTokenMatchMw = require('../auth/checkTokenMatchMw');
+const profilePicUploaderMw = require('../middlewares/profilePicUploaderMw');
 const {
   mailFormatValidator,
   passwordFormatValidator,
@@ -23,6 +24,12 @@ userNameGapValidator,
 mailFormatValidator,
 passwordFormatValidator,
 rescue(UserController.create));
+
+userRoutes.put('/update/profile_picture/:id',
+verifyTokenMw,
+checkTokenMatchMw,
+rescue(profilePicUploaderMw.single('profilePicUploaderInput')),
+rescue(UserController.updateProfilePicture));
 
 userRoutes.put('/update/:id',
 verifyTokenMw,

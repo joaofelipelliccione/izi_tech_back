@@ -63,9 +63,10 @@ const findByPk = async (userId) => {
   return user;
 };
 
-const update = async (userId, { userName, userPassword, userBirthday, userCPF, userCellphone }) => {
+const update = async (userId, { userName, userPassword, userBirthday,
+  userCPF, userCellphone, userPicture }) => {
   await User.update(
-    { userName, userPassword, userBirthday, userCPF, userCellphone },
+    { userName, userPassword, userBirthday, userCPF, userCellphone, userPicture },
     { where: { userId } }, 
   );
 };
