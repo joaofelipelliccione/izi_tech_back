@@ -40,10 +40,12 @@ const update = async (req, res, _next) => {
   .json({ code: StatusCodes.OK, message: 'Alterações realizadas com sucesso!' });
 };
 
-const updateProfilePicture = async (_req, res, _next) => {
-  // console.log(req.file);
+const updateProfilePicture = async (req, res, _next) => {
+  const { id } = req.params;
+  // eslint-disable-next-line max-len
+  const imgSrc = `https://storage.googleapis.com/gcsb-izi-tech-profile-pictures/${id}.${req.file.mimetype.split('/')[1]}`;
   res.status(StatusCodes.OK)
-  .json({ code: StatusCodes.OK, message: 'Imagem de perfil alterada com sucesso!' });
+  .json({ code: StatusCodes.OK, imgSrc });
 };
 
 module.exports = {
