@@ -1,4 +1,5 @@
 require('dotenv').config();
+const { v4: uuidv4 } = require('uuid');
 const multer = require('multer');
 const multerGoogleStorage = require('multer-google-storage');
 
@@ -11,7 +12,10 @@ module.exports = multer({
     keyFilename: process.env.GCS_KEYFILE,
     filename: (req, file, cb) => {
       const { id } = req.params;
-      cb(null, `${id}.${file.mimetype.split('/')[1]}`);
+      const imgName = `${id}_${uuidv4()}.${file.mimetype.split('/')[1]}`;
+
+      cb(null, imgName);
+      req.imgSrc = `https://storage.googleapis.com/gcsb-izi-tech-profile-pictures/${imgName}`;
     },
   }),
 });

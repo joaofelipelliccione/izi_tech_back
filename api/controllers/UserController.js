@@ -25,10 +25,8 @@ const findByPk = async (req, res, _next) => {
 };
 
 const updateProfilePicture = async (req, res, _next) => {
-  const { id } = req.params;
+  const { imgSrc } = req;
 
-  // eslint-disable-next-line max-len
-  const imgSrc = `https://storage.googleapis.com/gcsb-izi-tech-profile-pictures/${id}.${req.file.mimetype.split('/')[1]}`;
   res.status(StatusCodes.OK)
   .json({ code: StatusCodes.OK, imgSrc });
 };
