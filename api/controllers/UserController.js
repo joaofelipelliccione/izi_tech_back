@@ -24,6 +24,15 @@ const findByPk = async (req, res, _next) => {
   res.status(StatusCodes.OK).json(user);
 };
 
+const updateProfilePicture = async (req, res, _next) => {
+  const { id } = req.params;
+
+  // eslint-disable-next-line max-len
+  const imgSrc = `https://storage.googleapis.com/gcsb-izi-tech-profile-pictures/${id}.${req.file.mimetype.split('/')[1]}`;
+  res.status(StatusCodes.OK)
+  .json({ code: StatusCodes.OK, imgSrc });
+};
+
 const update = async (req, res, _next) => {
   const { id } = req.params;
   const { userName, userPassword, userBirthday, userCPF, userCellphone, userPicture } = req.body;
@@ -36,21 +45,14 @@ const update = async (req, res, _next) => {
     userCellphone,
     userPicture,
   });
+
   res.status(StatusCodes.OK)
   .json({ code: StatusCodes.OK, message: 'Alterações realizadas com sucesso!' });
-};
-
-const updateProfilePicture = async (req, res, _next) => {
-  const { id } = req.params;
-  // eslint-disable-next-line max-len
-  const imgSrc = `https://storage.googleapis.com/gcsb-izi-tech-profile-pictures/${id}.${req.file.mimetype.split('/')[1]}`;
-  res.status(StatusCodes.OK)
-  .json({ code: StatusCodes.OK, imgSrc });
 };
 
 module.exports = {
   create,
   findByPk,
-  update,
   updateProfilePicture,
+  update,
 };
