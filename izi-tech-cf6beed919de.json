@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "izi-tech",
+  "private_key_id": "cf6beed919de71bf3bf29f118695a574d42e43c2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8Mq0HEFlkGihl\n3GW6MPGnL5gVNBnGK3F1whiFkMStTjEQT8Da+AGLkR89m6O2FK8hcdZXS8b/eETX\ndzVuihBbLSWEU/UNQBp2COf2qu7WB/gFiRZwlOz7yaOMglTpZozLMnwL9aLKEX57\nZX9rSr3XGZclEZWvErq9XKEV97fWDrmTs7eNX+6aeX1taQT/jGuR5dalqVs7393B\n+JeOU95SVvpfmlGjuJH2HYnnzi+o1AhaXS3zqdOHXw1/mwvemoj3f8vUFUP/gwtR\n/B2Ao5EwKcNFlD5MblQeCDczLvdozfBw/O+7EHUlOHIT2XyR4UdBw+CLFA9ZMDbL\nUa6aYOhRAgMBAAECggEAGCGKUJ/OynhVKjxwmcdpUOXYIw3faSrMXUxSLxwhL9SZ\nE22afakzr4Tf49snSnNMAmaRlHdtsHeoIhWRtxcCYmJ/T0ChqP2Jdw2MyrLftXdn\nnLQXeb+KxH02GI/kmdnRn0Ndpv3rzeug02swA56diW1pVTI0RnLJGXs9V28ANjTM\nUNkyNzkVxq9g6VyR8p80Sl5H9UMyOSxFl0jjOjODr3YHw7OQT3AfFCFDt09+fSjl\nbFUntXbaTewYQRk5Gyr8UbWqA+l/+hkHWWkDGJJzVZxarSin7rnq4PO43tmxeXtS\n6h5KnSZVjAKBFrX3hQys0yotPN227gHTuqLeU54h7QKBgQDjlNQtHdRNOEuDCquD\nL0qtFepX3psp4DtP3KahBT7jPYR5wqux4R5uocYrZmcN2WK+2S/xCveLnUz1o9Fy\nHXOnjHofW4Zti1CGLM2sbAhburnc3Ogt3sb1q+A2bhycH//5eXSASruA4JwlUQZk\nSiET088JA5bI8LJV4xv82e2LvQKBgQDTst05OFemifv3wim2/53g89uO/5+GD4Uf\nSRGjFzyaayTqvnK9fk2QslYcDX6gURJy6+3g2XpBnXStoYKBdHCRE9VjbiGMz5M9\nE3Cr0DRk8XmMaqhMja0rUL3JYiEF3U82jjYTSSf9hr1V4t0kHX2f8ORyidgcYiW1\nFcv4AMruJQKBgHgJPOxbCmp8Yd/JVfOIkyO+Jm+YW1D4E3CpGj5d7PCgtuoeEr9s\n1MdXjpW/mmWEnn+5QH8r4KuEGV6KvGMrQ6BBCPzXIo1O6PcMVKM4DCSN1ZC398KR\n+XEE6erroy1592KXfCpawJFWZyWLmgp1ywKROmcvvG1Z/0Yr1sxECfYlAoGASTqg\nB8EToMouXL/PSjwV0tDH7ClEd007EV1nOnE5R3k0pfcHHcFo91qZKs8INFCW/yXZ\nfWP9RGFBESbDTCCJJ8YilGhuNpU/K2tkGCrHVPuqvgXO/dwsQMWHQPgu0CaD1i1P\nS1CNAsfvCpyVPn7tC7x6aZyBIyBYRtGpYrpzd/kCgYEAkzr4VX8rzpNT9uGhjI6Y\nZT+SUZ6IEpA0NoswoPzH5+qlZfBhWRaDkAAj/k+fTeb77DkZzjIrLMHc6Vim5b4N\nHqka8phu6XtrY9kVlfPStToSiKAsfHbgVeFJ+2pzpoRJxqGX01E/+Zvjavpovnsu\nN3lvAmQZTWeX0DIjZSHwMSA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "gcsb-izi-tech-profile-pictures@izi-tech.iam.gserviceaccount.com",
+  "client_id": "105892178494738790290",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gcsb-izi-tech-profile-pictures%40izi-tech.iam.gserviceaccount.com"
+}
