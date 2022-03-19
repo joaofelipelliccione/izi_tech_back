@@ -8,5 +8,7 @@ COPY package.json .
 RUN npm install
 # Copiando todos os arquivos contidos no diretório local "izi_tech_back", para o diretório "app", do container.
 COPY . .
+# Sempre que o container for buildado, o script "add-google-credentials.sh" será rodado.
+ENTRYPOINT ["sh", "/app/add-google-credentials.sh"]
 # Execução do comando para que o servidor da API inicie.
 CMD [ "npm", "start" ]
