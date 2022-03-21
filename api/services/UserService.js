@@ -34,16 +34,19 @@ const findByPk = async (userId) => {
   const user = await User.findByPk(userId, {
     attributes: { exclude: ['userAddressId'] },
     include: [
-      { model: UserAddress,
+      { 
+        model: UserAddress,
         as: 'userAddress',
         attributes: { exclude: ['infoFromCepId'] },
         include: [{ model: InfoFromCep, as: 'infoFromCep' }],
       },
-      { model: PublishedProducts,
+      { 
+        model: PublishedProducts,
         as: 'publishedProducts',
         attributes: ['productId'],
       },
-      { model: PublishedProducts,
+      { 
+        model: PublishedProducts,
         as: 'favoriteProducts',
         through: { attributes: [] },
         attributes: ['productId'],
