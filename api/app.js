@@ -9,6 +9,7 @@ const verifyTokenRoutes = require('./routes/verifyTokenRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const userRoutes = require('./routes/userRoutes');
 const productCategoriesRoutes = require('./routes/productCategoriesRoutes');
+const publishedProductsRoutes = require('./routes/publishedProductsRoutes');
 
 const errorMw = require('./middlewares/errorMw');
 
@@ -25,6 +26,7 @@ app.use('/login', loginRoutes);
 app.use('/verify_token', verifyTokenRoutes);
 app.use('/user', userRoutes);
 app.use('/products_categories', productCategoriesRoutes);
+app.use('/published_products', publishedProductsRoutes);
 
 app.use(errorMw);
 
