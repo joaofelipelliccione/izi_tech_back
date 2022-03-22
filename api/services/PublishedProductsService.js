@@ -48,6 +48,7 @@ const findAll = async () => {
       },
     ],
   });
+
   return publishedProducts;
 };
 
