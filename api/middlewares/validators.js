@@ -129,6 +129,20 @@ const userAddressIdGapValidator = (req, res, next) => {
   next();
 };
 
+const productIdGapValidator = (req, res, next) => {
+  const { productId } = req.body;
+
+  if (!productId || productId === '' || typeof (productId) !== 'number') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"productId" deve ser fornecido, não pode ser vazio e deve ser um número.',
+    });
+  }
+
+  next();
+};
+
 module.exports = {
   mailFormatValidator,
   passwordFormatValidator,
@@ -137,4 +151,5 @@ module.exports = {
   cellphoneFormatValidator,
   cepFormatValidator,
   userAddressIdGapValidator,
+  productIdGapValidator,
 };
