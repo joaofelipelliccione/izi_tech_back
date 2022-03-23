@@ -10,6 +10,7 @@ const loginRoutes = require('./routes/loginRoutes');
 const userRoutes = require('./routes/userRoutes');
 const productCategoriesRoutes = require('./routes/productCategoriesRoutes');
 const publishedProductsRoutes = require('./routes/publishedProductsRoutes');
+const favoriteProductsRoutes = require('./routes/favoriteProductsRoutes');
 
 const errorMw = require('./middlewares/errorMw');
 
@@ -27,6 +28,7 @@ app.use('/verify_token', verifyTokenRoutes);
 app.use('/user', userRoutes);
 app.use('/products_categories', productCategoriesRoutes);
 app.use('/published_products', publishedProductsRoutes);
+app.use('/favorite_products', favoriteProductsRoutes);
 
 app.use(errorMw);
 
