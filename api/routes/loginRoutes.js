@@ -4,13 +4,13 @@ const LoginController = require('../controllers/LoginController');
 
 const loginRoutes = express.Router();
 const {
-  mailFormatValidator,
-  passwordFormatValidator,
+  mailValidatorForPost,
+  passwordValidatorForPost,
 } = require('../middlewares/validators');
 
 loginRoutes.post('/',
-mailFormatValidator,
-passwordFormatValidator,
+mailValidatorForPost,
+passwordValidatorForPost,
 rescue(LoginController.login));
 
 module.exports = loginRoutes;

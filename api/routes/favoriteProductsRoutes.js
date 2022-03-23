@@ -7,19 +7,19 @@ const favoriteProductsRoutes = express.Router();
 const verifyTokenMw = require('../auth/verifyTokenMw');
 const checkTokenMatchMw = require('../auth/checkTokenMatchMw');
 const {
-  productIdGapValidator,
+  productIdValidator,
 } = require('../middlewares/validators');
 
 favoriteProductsRoutes.post('/insert',
 verifyTokenMw,
 checkTokenMatchMw,
-productIdGapValidator,
+productIdValidator,
 rescue(FavoriteProductsController.create));
 
 favoriteProductsRoutes.delete('/remove',
 verifyTokenMw,
 checkTokenMatchMw,
-productIdGapValidator,
+productIdValidator,
 rescue(FavoriteProductsController.remove));
 
 module.exports = favoriteProductsRoutes;
