@@ -153,6 +153,20 @@ const cellphoneValidatorForPut = (req, res, next) => { // Validado!
   next();
 };
 
+const userPictureValidatorForPut = (req, res, next) => { // Validado!
+  const { userPicture } = req.body;
+
+  if (userPicture === '') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"userPicture" não pode ser vazio.',
+    });
+  }
+
+  next();
+};
+
 const userAddressIdValidatorForPut = (req, res, next) => { // Validado!
   const { userAddressId } = req.body;
 
@@ -216,6 +230,7 @@ module.exports = {
   passwordValidatorForPut,
   cpfValidatorForPut,
   cellphoneValidatorForPut,
+  userPictureValidatorForPut,
   cepValidatorForPut,
   userAddressIdValidatorForPut,
   productIdValidator,
