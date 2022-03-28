@@ -1,4 +1,21 @@
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable max-lines */
 const { StatusCodes } = require('http-status-codes');
+
+const userIdValidatorForPost = (req, res, next) => { // Validado!
+  const { userId } = req.body;
+
+  if (!userId || userId === '' || typeof userId !== 'number') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"userId" deve ser fornecido, não pode ser vazio e '
+      + 'precisa apresentar formato numérico.',
+    });
+  }
+
+  next();
+};
 
 const userNameValidatorForPost = (req, res, next) => { // Validado!
   const { userName } = req.body;
@@ -182,7 +199,7 @@ const userAddressIdValidatorForPut = (req, res, next) => { // Validado!
   next();
 };
 
-const cepValidatorForPut = (req, res, next) => { // Validado!
+const cepValidatorForPutOrPost = (req, res, next) => { // Validado!
   const { cep } = req.body;
 
   const validateCepFormatRgx = /(\d{5})-(\d{3})/;
@@ -222,7 +239,175 @@ const productIdValidator = (req, res, next) => { // Validado!
   next();
 };
 
+const productTitleValidatorForPost = (req, res, next) => { // Validado!
+  const { productTitle } = req.body;
+
+  if (!productTitle || productTitle === '') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"productTitle" deve ser fornecido e não pode ser vazio.',
+    });
+  }
+
+  next();
+};
+
+const productDescriptionForPost = (req, res, next) => { // Validado!
+  const { productDescription } = req.body;
+
+  if (!productDescription || productDescription.length < 30) {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"productDescription" deve ser fornecido, não pode ser vazio e deve apresentar, '
+      + 'no mínimo, 30 caracteres.',
+    });
+  }
+
+  next();
+};
+
+const productAcceptChangeForPost = (req, res, next) => { // Validado!
+  const { productAcceptChange } = req.body;
+
+  if (!productAcceptChange
+    || productAcceptChange === ''
+    || typeof productAcceptChange !== 'number') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"productAcceptChange" deve ser fornecido, não pode ser vazio e '
+      + 'precisa apresentar formato numérico.',
+    });
+  }
+
+  next();
+};
+
+const productPriceForPost = (req, res, next) => { // Validado!
+  const { productPrice } = req.body;
+
+  if (!productPrice
+    || productPrice === ''
+    || typeof productPrice !== 'number') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"productPrice" deve ser fornecido, não pode ser vazio e '
+      + 'precisa apresentar formato numérico.',
+    });
+  }
+
+  next();
+};
+
+const productTypeIdForPost = (req, res, next) => { // Validado!
+  const { productTypeId } = req.body;
+
+  if (!productTypeId
+    || productTypeId === ''
+    || typeof productTypeId !== 'number') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"productTypeId" deve ser fornecido, não pode ser vazio e '
+      + 'precisa apresentar formato numérico.',
+    });
+  }
+
+  next();
+};
+
+const productConditionIdForPost = (req, res, next) => { // Validado!
+  const { productConditionId } = req.body;
+
+  if (!productConditionId
+    || productConditionId === ''
+    || typeof productConditionId !== 'number') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"productConditionId" deve ser fornecido, não pode ser vazio e '
+      + 'precisa apresentar formato numérico.',
+    });
+  }
+
+  next();
+};
+
+const productStreetValidatorForPost = (req, res, next) => { // Validado!
+  const { street } = req.body;
+
+  if (typeof street !== 'string') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"street" deve ser informada, mesmo sendo vazia.',
+    });
+  }
+
+  next();
+};
+
+const productNeighborhoodValidatorForPost = (req, res, next) => { // Validado!
+  const { neighborhood } = req.body;
+
+  if (typeof neighborhood !== 'string') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"neighborhood" deve ser informado, mesmo sendo vazio.',
+    });
+  }
+
+  next();
+};
+
+const productCityValidatorForPost = (req, res, next) => { // Validado!
+  const { city } = req.body;
+
+  if (typeof city !== 'string') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"city" deve ser informada, mesmo sendo vazia.',
+    });
+  }
+
+  next();
+};
+
+const productUfValidatorForPost = (req, res, next) => { // Validado!
+  const { uf } = req.body;
+
+  if (typeof uf !== 'string') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"uf" deve ser informado, mesmo sendo vazio.',
+    });
+  }
+
+  next();
+};
+
+const productDDDValidatorForPost = (req, res, next) => { // Validado!
+  const { ddd } = req.body;
+
+  if (typeof ddd !== 'string') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"ddd" deve ser informado, mesmo sendo vazio.',
+    });
+  }
+
+  next();
+};
+
 module.exports = {
+  userIdValidatorForPost,
   userNameValidatorForPost,
   mailValidatorForPost,
   passwordValidatorForPost,
@@ -231,7 +416,18 @@ module.exports = {
   cpfValidatorForPut,
   cellphoneValidatorForPut,
   userPictureValidatorForPut,
-  cepValidatorForPut,
+  cepValidatorForPutOrPost,
   userAddressIdValidatorForPut,
   productIdValidator,
+  productTitleValidatorForPost,
+  productDescriptionForPost,
+  productAcceptChangeForPost,
+  productPriceForPost,
+  productTypeIdForPost,
+  productConditionIdForPost,
+  productStreetValidatorForPost,
+  productNeighborhoodValidatorForPost,
+  productCityValidatorForPost,
+  productUfValidatorForPost,
+  productDDDValidatorForPost,
 };

@@ -19,7 +19,7 @@ const {
   cellphoneValidatorForPut,
   userPictureValidatorForPut,
   userAddressIdValidatorForPut,
-  cepValidatorForPut,
+  cepValidatorForPutOrPost,
 } = require('../middlewares/validators');
 
 userRoutes.post('/new',
@@ -43,7 +43,7 @@ cpfValidatorForPut,
 cellphoneValidatorForPut,
 userPictureValidatorForPut,
 userAddressIdValidatorForPut,
-cepValidatorForPut,
+cepValidatorForPutOrPost,
 rescue(InfoFromCepController.create),
 rescue(UserAddressController.update),
 rescue(UserController.update));
