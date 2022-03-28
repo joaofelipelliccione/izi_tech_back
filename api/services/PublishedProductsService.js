@@ -1,4 +1,5 @@
 /* eslint-disable max-lines-per-function */
+const { StatusCodes } = require('http-status-codes');
 
 const {
   PublishedProducts,
@@ -52,6 +53,27 @@ const findAll = async () => {
   return publishedProducts;
 };
 
+const create = async (infoFromCepId, {
+  userId, productTitle, productDescription, productAcceptChange,
+  productPrice, productTypeId, productConditionId }) => {
+  await PublishedProducts.create({
+    userId,
+    productTitle,
+    productDescription,
+    productAcceptChange,
+    productPrice,
+    productTypeId,
+    productConditionId,
+    infoFromCepId,
+  });
+
+  return {
+    code: StatusCodes.CREATED,
+    message: 'Novo produto publicado com sucesso!',
+  };
+};
+
 module.exports = {
   findAll,
+  create,
 };

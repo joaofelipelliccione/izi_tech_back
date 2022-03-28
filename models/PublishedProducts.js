@@ -3,7 +3,7 @@
 module.exports = (sequelize, DataTypes) => {
   const PublishedProducts = sequelize.define('PublishedProducts', {
     productId: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    publicationDate: DataTypes.DATEONLY,
+    publicationDate: { type: DataTypes.DATEONLY, defaultValue: DataTypes.NOW },
     productTitle: DataTypes.STRING(100),
     productDescription: DataTypes.STRING(1000),
     productAcceptChange: DataTypes.BOOLEAN, // 0 = false ; 1 = true
