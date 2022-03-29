@@ -271,8 +271,7 @@ const productDescriptionForPost = (req, res, next) => { // Validado!
 const productAcceptChangeForPost = (req, res, next) => { // Validado!
   const { productAcceptChange } = req.body;
 
-  if (!productAcceptChange
-    || productAcceptChange === ''
+  if (productAcceptChange === ''
     || typeof productAcceptChange !== 'number') {
     return res.status(StatusCodes.BAD_REQUEST)
     .json({
