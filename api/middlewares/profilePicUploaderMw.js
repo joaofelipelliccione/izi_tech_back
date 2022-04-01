@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 require('dotenv').config();
 const { v4: uuidv4 } = require('uuid');
 const multer = require('multer');
