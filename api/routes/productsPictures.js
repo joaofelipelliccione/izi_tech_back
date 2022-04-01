@@ -4,13 +4,11 @@ const ProductsPicturesController = require('../controllers/ProductsPicturesContr
 
 const productsPicturesRoutes = express.Router();
 
-// const verifyTokenMw = require('../auth/verifyTokenMw');
-// const checkTokenMatchMw = require('../auth/checkTokenMatchMw');
+const verifyTokenMw = require('../auth/verifyTokenMw');
 const productsPicsUploaderMw = require('../middlewares/productsPicsUploaderMw');
 
 productsPicturesRoutes.post('/new/:productId',
-// verifyTokenMw,
-// checkTokenMatchMw,
+verifyTokenMw,
 rescue(productsPicsUploaderMw.any('productPicsUploaderInput')),
 rescue(ProductsPicturesController.testeJF));
 
