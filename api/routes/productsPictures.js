@@ -10,6 +10,6 @@ const productsPicsUploaderMw = require('../middlewares/productsPicsUploaderMw');
 productsPicturesRoutes.post('/new/:productId',
 verifyTokenMw,
 rescue(productsPicsUploaderMw.array('productPicsUploaderInput')),
-rescue(ProductsPicturesController.testeJF));
+rescue(ProductsPicturesController.create));
 
 module.exports = productsPicturesRoutes;

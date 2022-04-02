@@ -1,10 +1,14 @@
-// const { StatusCodes } = require('http-status-codes');
+const ProductsPicturesServices = require('../services/ProductsPicturesServices');
 
-const testeJF = async (req, _res, _next) => {
-  console.log(req.imgsSrcArr);
-  // PEGAR LINK DAS IMAGENS E FAZER POST P/ TABELA ProductsPictures DO DB.
+const create = async (req, res, _next) => {
+  const { productId } = req.params;
+  const { imgsSrcArr } = req;
+
+  const result = await ProductsPicturesServices
+    .create(productId, imgsSrcArr);
+  return res.status(result.code).json(result);
 };
 
 module.exports = {
-  testeJF,
+  create,
 };
