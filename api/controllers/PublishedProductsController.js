@@ -12,7 +12,7 @@ const create = async (req, res, _next) => {
     productAcceptChange, productPrice, productTypeId,
     productConditionId } = req.body;
 
-  const newProduct = await PublishedProductsService.create(infoFromCepId, {
+  const { code, newProductId } = await PublishedProductsService.create(infoFromCepId, {
     userId,
     productTitle,
     productDescription,
@@ -22,8 +22,8 @@ const create = async (req, res, _next) => {
     productConditionId,
   });
 
-  res.status(StatusCodes.OK)
-  .json({ code: newProduct.code, message: newProduct.message });
+  res.status(code)
+  .json({ code, newProductId });
 };
 
 module.exports = {

@@ -56,7 +56,7 @@ const findAll = async () => {
 const create = async (infoFromCepId, {
   userId, productTitle, productDescription, productAcceptChange,
   productPrice, productTypeId, productConditionId }) => {
-  await PublishedProducts.create({
+  const newProduct = await PublishedProducts.create({
     userId,
     productTitle,
     productDescription,
@@ -69,7 +69,7 @@ const create = async (infoFromCepId, {
 
   return {
     code: StatusCodes.CREATED,
-    message: 'Novo produto publicado com sucesso!',
+    newProductId: newProduct.productId,
   };
 };
 
