@@ -8,7 +8,7 @@ module.exports = async (userMail, userPassword, userId) => {
   
   const authToken = jwt.sign(user, SECRET, {
     algorithm: 'HS256',
-    expiresIn: '50s',
+    expiresIn: '5d',
   });
 
   return authToken;
