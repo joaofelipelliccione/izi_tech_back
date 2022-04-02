@@ -11,7 +11,7 @@ const userRoutes = require('./routes/userRoutes');
 const productCategoriesRoutes = require('./routes/productCategoriesRoutes');
 const publishedProductsRoutes = require('./routes/publishedProductsRoutes');
 const favoriteProductsRoutes = require('./routes/favoriteProductsRoutes');
-const productsPicturesRoutes = require('./routes/productsPictures');
+const productsPicturesRoutes = require('./routes/productsPicturesRoutes');
 
 const errorMw = require('./middlewares/errorMw');
 
