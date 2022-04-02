@@ -4,7 +4,7 @@ const {
 } = require('../../models/index');
 
 const create = async (productId, productsPicsPathArr) => {
-  await Promise.all(productsPicsPathArr.map(async (path) => {
+  await Promise.all(productsPicsPathArr.map(async (path) => { // VERIFICAR ESSE MAP
     await ProductPictures.create({
       productPicturePath: path,
       productId,
