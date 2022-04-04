@@ -3,6 +3,7 @@ const rescue = require('express-rescue');
 const UserController = require('../controllers/UserController');
 const InfoFromCepController = require('../controllers/InfoFromCepController');
 const UserAddressController = require('../controllers/UserAddressController');
+const ProfilePicturesBucket = require('../controllers/GCS/ProfilePicturesBucketController');
 
 const userRoutes = express.Router();
 
@@ -47,6 +48,10 @@ cepValidatorForPutOrPost,
 rescue(InfoFromCepController.create),
 rescue(UserAddressController.update),
 rescue(UserController.update));
+
+userRoutes.get('gcs/remove/profile_picture/:file_name',
+verifyTokenMw,
+rescue(ProfilePicturesBucket.remove));
 
 userRoutes.get('/:id',
 verifyTokenMw,
