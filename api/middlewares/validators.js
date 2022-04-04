@@ -405,6 +405,21 @@ const productDDDValidatorForPost = (req, res, next) => { // Validado!
   next();
 };
 
+const fileNameValidatorForDelete = (req, res, next) => { // Validado!
+  const { fileName } = req.body;
+
+  if (!fileName || fileName === '' || typeof fileName !== 'string') {
+    return res.status(StatusCodes.BAD_REQUEST)
+    .json({
+      code: StatusCodes.BAD_REQUEST,
+      message: '"fileName" deve ser fornecido, não pode ser vazia e '
+      + 'precisa apresentar formato de texto.',
+    });
+  }
+
+  next();
+};
+
 module.exports = {
   userIdValidatorForPost,
   userNameValidatorForPost,
@@ -429,4 +444,5 @@ module.exports = {
   productCityValidatorForPost,
   productUfValidatorForPost,
   productDDDValidatorForPost,
+  fileNameValidatorForDelete,
 };
